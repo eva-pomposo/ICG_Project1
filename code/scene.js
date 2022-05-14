@@ -46,6 +46,14 @@ function resizeWindow(eventParam) {
     sceneElements.camera.updateProjectionMatrix();
 
     sceneElements.renderer.setSize(width, height);
+
+    var text = document.getElementById('text');
+    text.style.fontSize = ((width*height) * 20) / (1811040) + 'px';
+    text.style.width = ((width*height) * 100) / (1811040);
+    text.style.height = ((width*height) * 100) / (1811040);
+    text.style.padding = ((width*height) * 10) / (1811040) + 'px';
+    text.style.border = ((width*height) * 5) / (1811040) + 'px solid gray';
+    document.body.appendChild(text);
 }
 
 function onDocumentKeyDown(event) {
@@ -487,14 +495,17 @@ function load3DObjects(sceneGraph) {
     // ************************** //
     // Create a text box
     // ************************** //
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     var text = document.createElement('div');
+    text.setAttribute('id', 'text');
     text.style.fontFamily = 'verdana';
-    text.style.fontSize = 20 + 'px';
+    text.style.fontSize = ((width*height) * 20) / (1811040) + 'px';
     text.style.position = 'absolute';
-    text.style.width = 100;
-    text.style.height = 100;
-    text.style.padding = 10 + 'px';
-    text.style.border = 5 + 'px solid gray';
+    text.style.width = ((width*height) * 100) / (1811040);
+    text.style.height = ((width*height) * 100) / (1811040);
+    text.style.padding = ((width*height) * 10) / (1811040) + 'px';
+    text.style.border = ((width*height) * 5) / (1811040) + 'px solid gray';
     text.style.backgroundColor = "blue";
     text.style.top = 0 + 'px';
     text.style.left = 0 + 'px';
