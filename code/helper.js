@@ -1,10 +1,9 @@
 "use strict";
 
-//  Adapted from Daniel Rohmer tutorial
+//  Adapted from Hunor Márton Borbély tutorial: https://www.freecodecamp.org/news/three-js-tutorial
+//  Adapted from exercise 3, classe ICG 4 
 //
-// 		https://imagecomputing.net/damien.rohmer/teaching/2019_2020/semester_1/MPRI_2-39/practice/threejs/content/000_threejs_tutorial/index.html
-//
-// 		J. Madeira - April 2021
+// 		Eva Bartolomeu - Maio 2021
 
 const helper = {
 

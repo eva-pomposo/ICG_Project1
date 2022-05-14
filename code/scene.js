@@ -1,13 +1,9 @@
 "use strict";
 
-//  Adapted from Daniel Rohmer tutorial
+//  Adapted from Hunor Márton Borbély tutorial: https://www.freecodecamp.org/news/three-js-tutorial
+//  Adapted from exercise 3, classe ICG 4 
 //
-// 		https://imagecomputing.net/damien.rohmer/teaching/2019_2020/semester_1/MPRI_2-39/practice/threejs/content/000_threejs_tutorial/index.html
-//
-//  And from an example by Pedro Iglésias
-//
-// 		J. Madeira - April 2021
-
+// 		Eva Bartolomeu - Maio 2021
 
 // To store the scene graph, and elements usefull to rendering the scene
 const sceneElements = {
@@ -16,7 +12,6 @@ const sceneElements = {
     control: null,  // NEW
     renderer: null,
 };
-
 
 // Functions are called
 //  1. Initialize the empty scene
@@ -622,21 +617,6 @@ const yellowCircle1 = sceneElements.sceneGraph.getObjectByName("trafficLight1_ye
 const redCircle1 = sceneElements.sceneGraph.getObjectByName("trafficLight1_red");
 
 function computeFrame(time) {
-/*
-    // THE SPOT LIGHT
-
-    // Can extract an object from the scene Graph from its name
-    const light = sceneElements.sceneGraph.getObjectByName("light");
-
-    // Apply a small displacement
-
-    if (light.position.x >= 10) {
-        delta *= -1;
-    } else if (light.position.x <= -10) {
-        delta *= -1;
-    }
-    light.translateX(delta);
-*/
     //Stop pivot2 circulation if the traffic light is red
     if (pivot2.rotation.y == -7.799999999999922) {
         pivot2.rotation.y = -1.5000000000000009;
