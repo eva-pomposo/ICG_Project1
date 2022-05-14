@@ -49,7 +49,6 @@ const helper = {
         spotLight.position.set(-5, 8, 0);
         sceneElements.sceneGraph.add(spotLight);
 
-
         // Setup shadow properties for the spotlight
         spotLight.castShadow = true;
         spotLight.shadow.mapSize.width = 2048;
@@ -57,39 +56,6 @@ const helper = {
 
         // Give a name to the spot light
         spotLight.name = "light";
-
-/*
-
-const intensity = 1;
-const rectLight = new THREE.RectAreaLight( 0xff0000, intensity,  10, 10 );
-rectLight.position.set( 5, 5, 0 );
-rectLight.lookAt( 0, 0, 0 );
-sceneElements.sceneGraph.add( rectLight )
-
-
-        TRY PUT TrafficLight shy
-        const light_1 = new THREE.PointLight('rgb(255, 0, 0)');
-        light_1.translateX(-1.70);
-        light_1.translateZ(0.05);//ATENCAO ESTOU A COLOCAR A VOAR !!
-        light_1.translateY(0.7);
-        sceneElements.sceneGraph.add(light_1);// se retirar esta linha a bola fica cinzenta, pq tirei a fonte de luz 
-
-        const spotLight1 = new THREE.SpotLight( 0xff0000 );
-        spotLight1.position.set( -1.70, 0.7, 0 );
-        sceneElements.sceneGraph.add( spotLight1 );
-
-        const spotLightHelper = new THREE.SpotLightHelper( spotLight1 );
-        sceneElements.sceneGraph.add( spotLightHelper );       
-
-        const pointLight = new THREE.PointLight( 0xff0000, 0.2, 100 );
-        pointLight.position.set( -1.70, 0.7, 0.05 );
-        sceneElements.sceneGraph.add( pointLight );
-        
-        const sphereSize = 0.2;
-        const pointLightHelper = new THREE.PointLightHelper( pointLight, sphereSize );
-        sceneElements.sceneGraph.add( pointLightHelper );
-
-*/
 
         // *********************************** //
         // Create renderer (with shadow map)
