@@ -1,7 +1,7 @@
 "use strict";
 
 //  Adapted from Hunor Márton Borbély tutorial: https://www.freecodecamp.org/news/three-js-tutorial
-//  Adapted from exercise 3, classe ICG 4 
+//  Adapted from exercise 3, Script ICG 4 
 //
 // 		Eva Bartolomeu - Maio 2021
 
