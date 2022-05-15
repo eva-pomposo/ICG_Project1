@@ -279,12 +279,12 @@ function Truck() {
     const truckRightTexture = getTruckSideTexture();
   
     const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(25/120, 30/120, 30/120), [
-      new THREE.MeshLambertMaterial({ color: 0xa52523, map: truckFrontTexture }),
-      new THREE.MeshLambertMaterial({ color: 0xa52523 }), // back
-      new THREE.MeshLambertMaterial({ color: 0xa52523 }), // top
-      new THREE.MeshLambertMaterial({ color: 0xa52523 }), // bottom
-      new THREE.MeshLambertMaterial({ color: 0xa52523, map: truckRightTexture }),
-      new THREE.MeshLambertMaterial({ color: 0xa52523, map: truckLeftTexture })
+      new THREE.MeshPhongMaterial({ color: 0xa52523, map: truckFrontTexture }),
+      new THREE.MeshPhongMaterial({ color: 0xa52523 }), // back
+      new THREE.MeshPhongMaterial({ color: 0xa52523 }), // top
+      new THREE.MeshPhongMaterial({ color: 0xa52523 }), // bottom
+      new THREE.MeshPhongMaterial({ color: 0xa52523, map: truckRightTexture }),
+      new THREE.MeshPhongMaterial({ color: 0xa52523, map: truckLeftTexture })
     ]);
     cabin.position.x = 40/120;
     cabin.position.y = 20/120;
@@ -333,7 +333,7 @@ function TrafficLight(name){
     const greenCircle = new THREE.Mesh( greenGeometry, greenMaterial );
     greenCircle.translateY(0.4);
     greenCircle.translateX(-1.70);
-    greenCircle.translateZ(0.051);//ATENCAO ESTOU A COLOCAR A VOAR !!
+    greenCircle.translateZ(0.051);
     trafficLight.add( greenCircle );
     greenCircle.name = name + "_green";
 
@@ -343,7 +343,7 @@ function TrafficLight(name){
     const yellowCircle = new THREE.Mesh( yellowGeometry, yellowMaterial );
     yellowCircle.translateY(0.55);
     yellowCircle.translateX(-1.70);
-    yellowCircle.translateZ(0.051);//ATENCAO ESTOU A COLOCAR A VOAR !!
+    yellowCircle.translateZ(0.051);
     trafficLight.add( yellowCircle );
     yellowCircle.name = name + "_yellow";
 
@@ -353,7 +353,7 @@ function TrafficLight(name){
     const redCircle = new THREE.Mesh( redGeometry, redMaterial );
     redCircle.translateY(0.7);
     redCircle.translateX(-1.70);
-    redCircle.translateZ(0.051);//ATENCAO ESTOU A COLOCAR A VOAR !!
+    redCircle.translateZ(0.051);
     trafficLight.add( redCircle );
     redCircle.name = name + "_red";
 
@@ -453,7 +453,7 @@ function load3DObjects(sceneGraph) {
     const planeMaterial = new THREE.MeshPhongMaterial({ color: 'rgb(154,205,50)', side: THREE.DoubleSide });
     const planeObject = new THREE.Mesh(planeGeometry, planeMaterial);
     sceneGraph.add(planeObject);
-    planeObject.translateY(-0.0001);//ATENCAO ESTOU A COLOCAR A VOAR !!
+    planeObject.translateY(-0.0001);
     // Change orientation of the plane using rotation
     planeObject.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
     // Set shadow property
@@ -472,7 +472,7 @@ function load3DObjects(sceneGraph) {
     const circleMaterial2 = new THREE.MeshPhongMaterial({ color: 'rgb(154,205,50)', side: THREE.DoubleSide });
     const circle2 = new THREE.Mesh(circleGeometry2, circleMaterial2);
     sceneGraph.add(circle2);
-    circle2.translateY(0.0001);//ATENCAO ESTOU A COLOCAR A VOAR !!
+    circle2.translateY(0.0001);
     // Change orientation of the plane using rotation
     circle2.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
     // Set shadow property
