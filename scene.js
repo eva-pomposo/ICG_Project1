@@ -501,7 +501,7 @@ function load3DObjects(sceneGraph) {
     text.style.height = ((width*height) * 100) / (1811040);
     text.style.padding = ((width*height) * 10) / (1811040) + 'px';
     text.style.border = ((width*height) * 5) / (1811040) + 'px solid gray';
-    text.style.backgroundColor = "blue";
+    text.style.backgroundColor = "white";
     text.style.top = 0 + 'px';
     text.style.left = 0 + 'px';
     text.innerHTML = "To control the left traffic light: <ul> <li>Press 'W' KEY to change to green;</li> <li>Press 'S' KEY to change to red.</li> </ul> <br/> To control the right traffic light: <ul> <li>Press 'A' KEY to change to green;</li> <li>Press 'D' KEY to change to red.</li>";
