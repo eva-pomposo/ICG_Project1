@@ -9,7 +9,7 @@
 const sceneElements = {
     sceneGraph: null,
     camera: null,
-    control: null,  // NEW
+    control: null, 
     renderer: null,
 };
 
@@ -127,19 +127,19 @@ function sideMirror() {
     return new THREE.CanvasTexture(canvas);
 }
 
-function Car(cor){
+function Car(cor, wheelX = 0.15, mainWidth = 0.5, cabinWidth = 0.275){
     const car = new THREE.Group();
 
     const wheel1 = Wheel();
-    wheel1.translateX(-0.15);
+    wheel1.translateX(-wheelX);
     car.add(wheel1);
   
     const wheel2 = Wheel();
-    wheel2.translateX(0.15);
+    wheel2.translateX(wheelX);
     car.add(wheel2);
 
     const main = new THREE.Mesh(
-      new THREE.BoxBufferGeometry(0.5, 0.125, 0.25),
+      new THREE.BoxBufferGeometry(mainWidth, 0.125, 0.25),
       new THREE.MeshPhongMaterial({ color: cor })
     );
     main.translateY(0.1);
@@ -155,7 +155,7 @@ function Car(cor){
     left.rotation = Math.PI/120;
     left.flipY = false;
   
-    const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(0.275, 0.1, 0.2), [
+    const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(cabinWidth, 0.1, 0.2), [
       new THREE.MeshPhongMaterial({ map: front }),
       new THREE.MeshPhongMaterial({ map: back }),
       new THREE.MeshPhongMaterial({ color: 0xffffff }), // top
@@ -171,52 +171,6 @@ function Car(cor){
   
     return car;
 }
-
-function Car2(cor){
-    const car = new THREE.Group();
-
-    const wheel1 = Wheel();
-    wheel1.translateX(-0.2);
-    car.add(wheel1);
-  
-    const wheel2 = Wheel();
-    wheel2.translateX(0.2);
-    car.add(wheel2);
-
-    const main = new THREE.Mesh(
-      new THREE.BoxBufferGeometry(0.75, 0.125, 0.25),
-      new THREE.MeshPhongMaterial({ color: cor })
-    );
-    main.translateY(0.1);
-    main.castShadow = true;
-    main.receiveShadow = true;
-    car.add(main);
-  
-    const front = frontMirror();
-    const back = frontMirror();
-    const right = sideMirror();
-    const left = sideMirror();
-    left.center = new THREE.Vector2(0.5/120, 0.5/120);
-    left.rotation = Math.PI/120;
-    left.flipY = false;
-  
-    const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(0.5, 0.1, 0.2), [
-      new THREE.MeshPhongMaterial({ map: front }),
-      new THREE.MeshPhongMaterial({ map: back }),
-      new THREE.MeshPhongMaterial({ color: 0xffffff }), // top
-      new THREE.MeshPhongMaterial({ color: 0xffffff }), // bottom
-      new THREE.MeshPhongMaterial({ map: right }),
-      new THREE.MeshPhongMaterial({ map: left }),
-    ]);
-    cabin.position.x = -0.05;
-    cabin.position.y = 0.2125;
-    cabin.castShadow = true;
-    cabin.receiveShadow = true;
-    car.add(cabin);
-  
-    return car;
-}
-
 
 function getTruckFrontTexture() {
   const canvas = document.createElement("canvas");
@@ -339,7 +293,6 @@ function TrafficLight(name){
 
     const yellowGeometry = new THREE.CircleGeometry(0.05 , 32 );
     const yellowMaterial = new THREE.MeshBasicMaterial( { color: 0x000000 } );
-    //const yellowMaterial = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
     const yellowCircle = new THREE.Mesh( yellowGeometry, yellowMaterial );
     yellowCircle.translateY(0.55);
     yellowCircle.translateX(-1.70);
@@ -349,7 +302,6 @@ function TrafficLight(name){
 
     const redGeometry = new THREE.CircleGeometry(0.05 , 32 );
     const redMaterial = new THREE.MeshBasicMaterial( { color: 0x000000 } );
-    //const redMaterial = new THREE.MeshBasicMaterial( { color: "rgb(255,0,0)" } );
     const redCircle = new THREE.Mesh( redGeometry, redMaterial );
     redCircle.translateY(0.7);
     redCircle.translateX(-1.70);
@@ -532,7 +484,7 @@ function load3DObjects(sceneGraph) {
     // ************************** //
     // Create car2
     // ************************** //
-    const car2 = Car2('#000000');
+    const car2 = Car('#000000', 0.2, 0.75, 0.5);
     sceneGraph.add(car2);
     car2.translateZ(2.55)
     car2.translateX(-1)
